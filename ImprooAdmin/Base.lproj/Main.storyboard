@@ -724,17 +724,17 @@
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeK-3D-nML">
                                 <rect key="frame" x="98" y="402" width="332" height="100"/>
                                 <clipView key="contentView" id="XpI-Kw-zVQ">
-                                    <rect key="frame" x="1" y="1" width="315" height="98"/>
+                                    <rect key="frame" x="1" y="1" width="330" height="98"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="ahN-Lo-M7H">
-                                            <rect key="frame" x="0.0" y="0.0" width="315" height="98"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="330" height="98"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="315" height="98"/>
+                                            <size key="minSize" width="330" height="98"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="315" height="98"/>
+                                            <size key="minSize" width="330" height="98"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                         </textView>
                                     </subviews>
@@ -748,7 +748,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="Ksz-Ox-1fX">
-                                    <rect key="frame" x="316" y="1" width="15" height="98"/>
+                                    <rect key="frame" x="315" y="1" width="16" height="98"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -820,7 +820,7 @@
                             </button>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="chF-eD-oGr">
                                 <rect key="frame" x="96" y="328" width="37" height="26"/>
-                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="ymX-lm-qEh">
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ymX-lm-qEh">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="ctc-rl-Gxx"/>
@@ -871,7 +871,7 @@
                         <outlet property="bookCategory3" destination="ISA-Dh-NVM" id="6c6-sY-pNm"/>
                         <outlet property="bookDescription" destination="ahN-Lo-M7H" id="hjk-Dd-Kfn"/>
                         <outlet property="bookLanguage" destination="XW7-91-THR" id="64u-em-TTD"/>
-                        <outlet property="bookTitle" destination="YKn-Jp-5qS" id="qIz-VI-lGg"/>
+                        <outlet property="bookTitle" destination="YKn-Jp-5qS" id="IOD-Ym-MzT"/>
                         <outlet property="image" destination="8TC-VY-WSL" id="NYJ-NW-Jow"/>
                         <outlet property="imageURL" destination="mnA-nk-n1T" id="S9V-vz-aoY"/>
                     </connections>

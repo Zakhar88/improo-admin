@@ -7,15 +7,35 @@
 //
 
 import Foundation
+import Firebase
 
 class FirebaseManager {
-    let sharedApplication = FirebaseManager()
+    static let sharedManager = FirebaseManager()
     
-    var languages: [String] = [String]()
-    var bookCategories: [String] = [String]()
+    let rootRef = Firebase(url: "https://improo.firebaseio.com/")
     
-    func saveBook(bookDictionary: [String:AnyClass]) {
+    func login() {
+        if rootRef.authData == nil {
+            rootRef.authUser("g3axap@gmail.com", password: "3axap30558") { (error: NSError!, authData: FAuthData!) -> Void in
+                if error != nil {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    //    var languages: [String] = [String]()
+    //    var bookCategories: [String] = [String]()
+    
+    func saveBook(bookData: [String:AnyObject], withLanguage language: String) {
+        let booksRef = rootRef.childByAppendingPath(language).childByAppendingPath("Books")
         
+        booksRef.childByAppendingPath("BooksCoverAndDescription").childByAutoId().setValue(bookData["bookCoverAndDescription"]) { (error, snapshot) -> Void in
+            if error == nil {
+                booksRef.childByAppendingPath("BooksInfo").childByAppendingPath(snapshot.key).setValue(bookData["bookInfo"])
+            }
+        }
+    
     }
     
     func updateBook(bookDictionary: [String:AnyClass]) {
@@ -23,7 +43,7 @@ class FirebaseManager {
     }
     
     func removeBookWithID(id:String) {
-    
+        
     }
     
     func loadBooksWithLanguage(language: String, toDictioanary bookDictionary: [String:AnyClass]) {
