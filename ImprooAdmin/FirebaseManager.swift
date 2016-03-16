@@ -3,7 +3,7 @@
 //  ImprooAdmin
 //
 //  Created by 3axap on 29.02.16.
-//  Copyright © 2016 SIC. All rights reserved.
+//  Copyright © 2016 GZZ. All rights reserved.
 //
 
 import Foundation

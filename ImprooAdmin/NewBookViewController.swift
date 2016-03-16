@@ -3,7 +3,7 @@
 //  ImprooAdmin
 //
 //  Created by 3axap on 28.02.16.
-//  Copyright © 2016 SIC. All rights reserved.
+//  Copyright © 2016 GZZ. All rights reserved.
 //
 
 import Cocoa
@@ -27,6 +27,7 @@ class NewBookViewController: NSViewController {
         self.bookCategory1.addItemsWithTitles(["Мотивація","Психологія","Художні"])
         self.bookCategory2.addItemsWithTitles(["","Мотивація","Психологія","Художні"])
         self.bookCategory3.addItemsWithTitles(["","Мотивація","Психологія","Художні"])
+        
         self.bookLanguage.addItemsWithTitles(["Ukrainian","English"])
     }
     
