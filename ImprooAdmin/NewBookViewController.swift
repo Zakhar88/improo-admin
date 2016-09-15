@@ -9,6 +9,8 @@
 import Cocoa
 import Firebase
 
+let UkrainianBooksCategories = Categories.Ukrainian.Books
+
 class NewBookViewController: NSViewController {
     
     @IBOutlet weak var bookAuthor: NSTextField!
@@ -24,11 +26,16 @@ class NewBookViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.bookCategory1.addItemsWithTitles(["Мотивація","Психологія","Художні"])
-        self.bookCategory2.addItemsWithTitles(["","Мотивація","Психологія","Художні"])
-        self.bookCategory3.addItemsWithTitles(["","Мотивація","Психологія","Художні"])
+        
+        fillBookCategoriesLists()
         
         self.bookLanguage.addItemsWithTitles(["Ukrainian","English"])
+    }
+    
+    func fillBookCategoriesLists() {
+        self.bookCategory1.addItemsWithTitles(UkrainianBooksCategories)
+        self.bookCategory2.addItemsWithTitles([""] + UkrainianBooksCategories)
+        self.bookCategory3.addItemsWithTitles([""] + UkrainianBooksCategories)
     }
     
     @IBAction func saveBookAction(sender: NSButton) {
