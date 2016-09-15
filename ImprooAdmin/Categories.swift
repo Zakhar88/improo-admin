@@ -9,12 +9,21 @@
 import Foundation
 
 enum Categories {
-    enum Ukrainian {
-        static let Books = ["Мотивація", "Психологія", "Художні", "Творчість", "Комплексний розвиток", "Стосунки", "Кар'єра" ,"Спорт", "Харчування", "Здоров'я", "Філософія", "Соціум"]
+    case Ukrainian
+    case English
+    case Russian
+
+    var Books: [String] {
+        switch self {
+        case .Ukrainian: return ["Мотивація", "Психологія", "Художні", "Творчість", "Комплексний розвиток", "Стосунки", "Кар'єра" ,"Спорт", "Харчування", "Здоров'я", "Філософія", "Соціум"]
+        default: return []
+        }
     }
-    enum English {
+//    enum Ukrainian {
+//        static let Books = ["Мотивація", "Психологія", "Художні", "Творчість", "Комплексний розвиток", "Стосунки", "Кар'єра" ,"Спорт", "Харчування", "Здоров'я", "Філософія", "Соціум"]
+//    }
+//    enum English {
+//    }
+//    enum Russian {
+
     }
-    enum Russian {
-        
-    }
-}
