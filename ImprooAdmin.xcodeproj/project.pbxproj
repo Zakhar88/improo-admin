@@ -57,9 +57,30 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B17BAC7A1D9059B200125C85 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1F476D91C99ECB500F513F5 /* SectionsKeys.swift */,
+				B1F476DC1C99FC9300F513F5 /* Categories.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		B17BAC7B1D9059BD00125C85 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B19B83941C8359EE009D5819 /* Assets.xcassets */,
+				B19B83961C8359EE009D5819 /* Main.storyboard */,
+				B1B845041D6B8F1B00F03931 /* Books.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		B19A58871D8B0AED00FF9032 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B19B83921C8359EE009D5819 /* MainViewController.swift */,
+				B1C8A0CB1C83A28100F9895B /* NewBookViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -86,15 +107,10 @@
 		B19B838F1C8359EE009D5819 /* ImprooAdmin */ = {
 			isa = PBXGroup;
 			children = (
+				B17BAC7A1D9059B200125C85 /* Models */,
+				B17BAC7B1D9059BD00125C85 /* Views */,
 				B19A58871D8B0AED00FF9032 /* Controllers */,
-				B19B83921C8359EE009D5819 /* MainViewController.swift */,
-				B1C8A0CB1C83A28100F9895B /* NewBookViewController.swift */,
 				B1C8A0CF1C84C30200F9895B /* FirebaseManager.swift */,
-				B1F476D91C99ECB500F513F5 /* SectionsKeys.swift */,
-				B1F476DC1C99FC9300F513F5 /* Categories.swift */,
-				B19B83941C8359EE009D5819 /* Assets.xcassets */,
-				B19B83961C8359EE009D5819 /* Main.storyboard */,
-				B1B845041D6B8F1B00F03931 /* Books.storyboard */,
 			);
 			path = ImprooAdmin;
 			sourceTree = "<group>";
@@ -147,11 +163,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = GZZ;
 				TargetAttributes = {
 					B19B838C1C8359EE009D5819 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -275,8 +292,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -319,8 +338,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -339,6 +360,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -352,6 +374,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ImprooCorp.ImprooAdmin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -365,6 +388,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ImprooCorp.ImprooAdmin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

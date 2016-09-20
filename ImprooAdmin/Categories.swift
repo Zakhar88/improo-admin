@@ -9,13 +9,13 @@
 import Foundation
 
 enum Categories {
-    case Ukrainian
-    case English
-    case Russian
+    case ukrainian
+    case english
+    case russian
 
     var Books: [String] {
         switch self {
-        case .Ukrainian: return ["Мотивація", "Психологія", "Художні", "Творчість", "Комплексний розвиток", "Стосунки", "Кар'єра" ,"Спорт", "Харчування", "Здоров'я", "Філософія", "Соціум"]
+        case .ukrainian: return ["Мотивація", "Психологія", "Художні", "Творчість", "Комплексний розвиток", "Стосунки", "Кар'єра" ,"Спорт", "Харчування", "Здоров'я", "Філософія", "Соціум"]
         default: return []
         }
     }

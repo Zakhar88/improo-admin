@@ -9,7 +9,7 @@
 import Cocoa
 import Firebase
 
-let UkrainianBooksCategories = Categories.Ukrainian.Books
+let UkrainianBooksCategories = Categories.ukrainian.Books
 
 class NewBookViewController: NSViewController {
     
@@ -29,16 +29,16 @@ class NewBookViewController: NSViewController {
         
         fillBookCategoriesLists()
         
-        self.bookLanguage.addItemsWithTitles(["Ukrainian","English"])
+        self.bookLanguage.addItems(withTitles: ["Ukrainian","English"])
     }
     
     func fillBookCategoriesLists() {
-        self.bookCategory1.addItemsWithTitles(UkrainianBooksCategories)
-        self.bookCategory2.addItemsWithTitles([""] + UkrainianBooksCategories)
-        self.bookCategory3.addItemsWithTitles([""] + UkrainianBooksCategories)
+        self.bookCategory1.addItems(withTitles: UkrainianBooksCategories)
+        self.bookCategory2.addItems(withTitles: [""] + UkrainianBooksCategories)
+        self.bookCategory3.addItems(withTitles: [""] + UkrainianBooksCategories)
     }
     
-    @IBAction func saveBookAction(sender: NSButton) {
+    @IBAction func saveBookAction(_ sender: NSButton) {
         
         //Create array of categories
         var categoriesArray: [String] = [(self.bookCategory1.selectedItem?.title)!]
@@ -52,21 +52,21 @@ class NewBookViewController: NSViewController {
         //Create book dictioanry
         let bookInfo = ["author":self.bookAuthor.stringValue,
             "title":self.bookTitle.stringValue,
-            "categories":categoriesArray]
+            "categories":categoriesArray] as [String : Any]
         
         var bookCoverAndDescription = ["description":(self.bookDescription.textStorage?.string)!]
         
         if self.imageURL.stringValue.isEmpty {
             bookCoverAndDescription["image"] = "NO IMAGE DATA"
             let bookData = ["bookInfo":bookInfo,"bookCoverAndDescription":bookCoverAndDescription]
-            FirebaseManager.sharedManager.saveBook(bookData, withLanguage: (self.bookLanguage.selectedItem?.title)!)
+            FirebaseManager.sharedManager.saveBook(bookData as [String : AnyObject], withLanguage: (self.bookLanguage.selectedItem?.title)!)
         } else {
-            let imageUrl = NSURL(string: self.imageURL.stringValue)
-            let imageData = NSData(contentsOfURL: imageUrl!)
-            if let base64String = imageData?.base64EncodedStringWithOptions(.Encoding64CharacterLineLength) {
+            let imageUrl = URL(string: self.imageURL.stringValue)
+            let imageData = try? Data(contentsOf: imageUrl!)
+            if let base64String = imageData?.base64EncodedString(options: .lineLength64Characters) {
                 bookCoverAndDescription["image"] = base64String
                 let bookData = ["bookInfo":bookInfo,"bookCoverAndDescription":bookCoverAndDescription]
-                FirebaseManager.sharedManager.saveBook(bookData, withLanguage: (self.bookLanguage.selectedItem?.title)!)
+                FirebaseManager.sharedManager.saveBook(bookData as [String : AnyObject], withLanguage: (self.bookLanguage.selectedItem?.title)!)
             } else {
                 print("ERROR LOADING IMAGE")
             }

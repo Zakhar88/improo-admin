@@ -16,24 +16,24 @@ class MainViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sectionPopUpButton.addItemsWithTitles(Chapters.allChapters)
-        languagePopUpButton.addItemsWithTitles(Languages.allLanguages)
+        sectionPopUpButton.addItems(withTitles: Chapters.allChapters)
+        languagePopUpButton.addItems(withTitles: Languages.allLanguages)
 
         FirebaseManager.sharedManager.login()
     }
 
-    @IBAction func newItemAction(sender: NSButton) {
+    @IBAction func newItemAction(_ sender: NSButton) {
         switch self.sectionPopUpButton.selectedItem!.title {
         case Chapters.Books.rawValue :
             let booksStoryboard = NSStoryboard(name: "Books", bundle: nil)
-            let newBookViewController = booksStoryboard.instantiateControllerWithIdentifier("NewBookViewController") as! NSViewController
+            let newBookViewController = booksStoryboard.instantiateController(withIdentifier: "NewBookViewController") as! NSViewController
             self.presentViewControllerAsModalWindow(newBookViewController)
         default : break
         }
     }
     
     func addCategoriesForUkrainian() {
-        FirebaseManager.sharedManager.rootRef.childByAppendingPath(Languages.Ukrainian.rawValue).childByAppendingPath("Categories").setValue(Categories.Ukrainian.Books)
+        FirebaseManager.sharedManager.rootRef?.child(byAppendingPath: Languages.Ukrainian.rawValue).child(byAppendingPath: "Categories").setValue(Categories.ukrainian.Books)
     }
 }
 
