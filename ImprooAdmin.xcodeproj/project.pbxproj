@@ -11,8 +11,8 @@
 		B19B83931C8359EE009D5819 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19B83921C8359EE009D5819 /* MainViewController.swift */; };
 		B19B83951C8359EE009D5819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B19B83941C8359EE009D5819 /* Assets.xcassets */; };
 		B19B83981C8359EE009D5819 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19B83961C8359EE009D5819 /* Main.storyboard */; };
-		B1B845051D6B8F1B00F03931 /* Books.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1B845041D6B8F1B00F03931 /* Books.storyboard */; };
-		B1C8A0CC1C83A28100F9895B /* NewBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C8A0CB1C83A28100F9895B /* NewBookViewController.swift */; };
+		B1B845051D6B8F1B00F03931 /* NewItem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1B845041D6B8F1B00F03931 /* NewItem.storyboard */; };
+		B1C8A0CC1C83A28100F9895B /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C8A0CB1C83A28100F9895B /* NewItemViewController.swift */; };
 		B1C8A0D01C84C30200F9895B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C8A0CF1C84C30200F9895B /* FirebaseManager.swift */; };
 		B1F476DA1C99ECB500F513F5 /* SectionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F476D91C99ECB500F513F5 /* SectionsKeys.swift */; };
 		B1F476DD1C99FC9300F513F5 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F476DC1C99FC9300F513F5 /* Categories.swift */; };
@@ -28,8 +28,8 @@
 		B19B83941C8359EE009D5819 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B19B83971C8359EE009D5819 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B19B83991C8359EE009D5819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B1B845041D6B8F1B00F03931 /* Books.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Books.storyboard; sourceTree = "<group>"; };
-		B1C8A0CB1C83A28100F9895B /* NewBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBookViewController.swift; sourceTree = "<group>"; };
+		B1B845041D6B8F1B00F03931 /* NewItem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewItem.storyboard; sourceTree = "<group>"; };
+		B1C8A0CB1C83A28100F9895B /* NewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
 		B1C8A0CF1C84C30200F9895B /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		B1F476D91C99ECB500F513F5 /* SectionsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionsKeys.swift; sourceTree = "<group>"; };
 		B1F476DC1C99FC9300F513F5 /* Categories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 			children = (
 				B19B83941C8359EE009D5819 /* Assets.xcassets */,
 				B19B83961C8359EE009D5819 /* Main.storyboard */,
-				B1B845041D6B8F1B00F03931 /* Books.storyboard */,
+				B1B845041D6B8F1B00F03931 /* NewItem.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -80,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				B19B83921C8359EE009D5819 /* MainViewController.swift */,
-				B1C8A0CB1C83A28100F9895B /* NewBookViewController.swift */,
+				B1C8A0CB1C83A28100F9895B /* NewItemViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -196,7 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B19B83951C8359EE009D5819 /* Assets.xcassets in Resources */,
-				B1B845051D6B8F1B00F03931 /* Books.storyboard in Resources */,
+				B1B845051D6B8F1B00F03931 /* NewItem.storyboard in Resources */,
 				B19B83981C8359EE009D5819 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,7 +259,7 @@
 				B1F476DA1C99ECB500F513F5 /* SectionsKeys.swift in Sources */,
 				B1C8A0D01C84C30200F9895B /* FirebaseManager.swift in Sources */,
 				B19B83931C8359EE009D5819 /* MainViewController.swift in Sources */,
-				B1C8A0CC1C83A28100F9895B /* NewBookViewController.swift in Sources */,
+				B1C8A0CC1C83A28100F9895B /* NewItemViewController.swift in Sources */,
 				B19B83911C8359EE009D5819 /* AppDelegate.swift in Sources */,
 				B1F476DD1C99FC9300F513F5 /* Categories.swift in Sources */,
 			);

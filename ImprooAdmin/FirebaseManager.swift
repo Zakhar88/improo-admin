@@ -18,35 +18,32 @@ class FirebaseManager {
         if rootRef?.authData == nil {
             rootRef?.authUser("g3axap@gmail.com", password: "3axap30558") { (error: Error?, authData: FAuthData?) -> Void in
                 if error != nil {
-                    print(error)
+                    print(error!)
                 }
             }
         }
     }
     
-    //    var languages: [String] = [String]()
-    //    var bookCategories: [String] = [String]()
-    
-    func saveBook(_ bookData: [String:AnyObject], withLanguage language: String) {
-        let booksRef = rootRef?.child(byAppendingPath: language).child(byAppendingPath: "Books")
+    func saveItem(_ itemData: [String:AnyObject], withLanguage language: String, chapter: String) {
+        let itemRef = rootRef?.child(byAppendingPath: language).child(byAppendingPath: chapter)
         
-        booksRef?.child(byAppendingPath: "BooksCoverAndDescription").childByAutoId().setValue(bookData["bookCoverAndDescription"]) { (error, snapshot) -> Void in
+        itemRef?.child(byAppendingPath: "CoverAndDescription").childByAutoId().setValue(itemData["coverAndDescription"]) { (error, snapshot) -> Void in
             if error == nil {
-                booksRef?.child(byAppendingPath: "BooksInfo").child(byAppendingPath: snapshot?.key).setValue(bookData["bookInfo"])
+                itemRef?.child(byAppendingPath: "ItemInfo").child(byAppendingPath: snapshot?.key).setValue(itemData["info"])
             }
         }
     
     }
     
-    func updateBook(_ bookDictionary: [String:AnyClass]) {
+    func updateItem(_ bookDictionary: [String:AnyClass]) {
         
     }
     
-    func removeBookWithID(_ id:String) {
+    func removeItemWithID(_ id:String) {
         
     }
     
-    func loadBooksWithLanguage(_ language: String, toDictioanary bookDictionary: [String:AnyClass]) {
+    func loadItemsWithLanguage(_ language: String, chapter: String, toDictioanary bookDictionary: [String:AnyClass]) {
         
     }
 }
