@@ -11,7 +11,7 @@
         <scene sceneID="xLg-i7-RtJ">
             <objects>
                 <customObject id="udi-3z-OE1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController title="New Book" storyboardIdentifier="NewBookViewController" id="yHt-Id-p0S" customClass="NewItemViewController" customModule="ImprooAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="New Book" storyboardIdentifier="NewItemViewController" id="yHt-Id-p0S" customClass="NewItemViewController" customModule="ImprooAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="P18-6w-6zi">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="465"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -51,14 +51,14 @@
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZs-5l-3VK" userLabel="DescriptionTextView">
                                 <rect key="frame" x="98" y="315" width="332" height="100"/>
                                 <clipView key="contentView" id="Fqd-Sm-gpT">
-                                    <rect key="frame" x="1" y="1" width="330" height="98"/>
+                                    <rect key="frame" x="1" y="1" width="315" height="98"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="xeZ-3s-OYD">
-                                            <rect key="frame" x="0.0" y="0.0" width="330" height="98"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="315" height="98"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="330" height="98"/>
+                                            <size key="minSize" width="315" height="98"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
@@ -73,7 +73,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="x4G-lF-vvg">
-                                    <rect key="frame" x="315" y="1" width="16" height="98"/>
+                                    <rect key="frame" x="316" y="1" width="15" height="98"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -202,7 +202,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="554" y="422.5"/>
+            <point key="canvasLocation" x="32" y="163"/>
         </scene>
     </scenes>
 </document>
