@@ -24,12 +24,16 @@ class FirebaseManager {
         }
     }
     
-    func saveItem(_ itemData: [String:AnyObject], withLanguage language: String, chapter: String) {
+    func saveItem(_ itemData: [String: AnyObject], withLanguage language: String, chapter: String, completion: @escaping (Error?) -> Void) {
         let itemRef = rootRef?.child(byAppendingPath: language).child(byAppendingPath: chapter)
         
-        itemRef?.child(byAppendingPath: "CoverAndDescription").childByAutoId().setValue(itemData["coverAndDescription"]) { (error, snapshot) -> Void in
+        itemRef?.child(byAppendingPath: "AdditionalInfo").childByAutoId().setValue(itemData["AdditionalInfo"]) { (error, snapshot) -> Void in
             if error == nil {
-                itemRef?.child(byAppendingPath: "ItemInfo").child(byAppendingPath: snapshot?.key).setValue(itemData["info"])
+                itemRef?.child(byAppendingPath: "MainInfo").child(byAppendingPath: snapshot?.key).setValue(itemData["MainInfo"])  { (error, snapshot) -> Void in
+                    completion(error)
+                }
+            } else {
+                completion(error)
             }
         }
     

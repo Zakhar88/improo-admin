@@ -11,25 +11,24 @@ import Firebase
 
 class MainViewController: NSViewController {
     
-    @IBOutlet weak var sectionPopUpButton: NSPopUpButton!
-    @IBOutlet weak var languagePopUpButton: NSPopUpButton!
+    @IBOutlet weak var sectionPopUpButton: NSPopUpButton?
+    @IBOutlet weak var languagePopUpButton: NSPopUpButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sectionPopUpButton.addItems(withTitles: Chapters.allChapters)
-        languagePopUpButton.addItems(withTitles: Languages.allLanguages)
-
+        sectionPopUpButton?.addItems(withTitles: Chapters.allChapters)
+        languagePopUpButton?.addItems(withTitles: Languages.allLanguages)
+        
         FirebaseManager.sharedManager.login()
+        //addCategoriesForUkrainian()
     }
-
+    
     @IBAction func newItemAction(_ sender: NSButton) {
-        switch self.sectionPopUpButton.selectedItem!.title {
-        case Chapters.Books.rawValue :
-            let booksStoryboard = NSStoryboard(name: "NewItem", bundle: nil)
-            let newBookViewController = booksStoryboard.instantiateController(withIdentifier: "NewItemViewController") as! NewItemViewController
-            self.presentViewControllerAsModalWindow(newBookViewController)
-        default : break
-        }
+        let newItemStoryboard = NSStoryboard(name: "NewItem", bundle: nil)
+        let newItemViewController = newItemStoryboard.instantiateController(withIdentifier: "NewItemViewController") as! NewItemViewController
+        newItemViewController.chapter = sectionPopUpButton?.selectedItem?.title
+        newItemViewController.language = languagePopUpButton?.selectedItem?.title
+        self.presentViewControllerAsModalWindow(newItemViewController)
     }
     
     func addCategoriesForUkrainian() {

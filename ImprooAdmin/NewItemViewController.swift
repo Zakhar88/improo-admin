@@ -12,63 +12,80 @@ import Firebase
 let UkrainianBooksCategories = Categories.ukrainian.Books
 
 class NewItemViewController: NSViewController {
-    @IBOutlet weak var itemTitle: NSTextField!
-    @IBOutlet weak var itemDescription: NSTextView!
-    @IBOutlet weak var imageURL: NSTextField!
-    @IBOutlet weak var category1: NSPopUpButton!
-    @IBOutlet weak var category2: NSPopUpButton!
-    @IBOutlet weak var category3: NSPopUpButton!
-    @IBOutlet weak var language: NSPopUpButton!
+    @IBOutlet weak var itemTitle: NSTextField?
+    @IBOutlet weak var itemDescription: NSTextView?
+    @IBOutlet weak var imageFileName: NSTextField?
+    @IBOutlet weak var category1: NSPopUpButton?
+    @IBOutlet weak var category2: NSPopUpButton?
+    @IBOutlet weak var category3: NSPopUpButton?
+    @IBOutlet weak var urlTextField: NSTextField?
     
-    @IBOutlet weak var image: NSImageView!
-    
-    var chapter: String!
+    var chapter: String?
+    var language: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         fillCategoriesLists()
-        
-        self.language.addItems(withTitles: ["Ukrainian"])
     }
     
     func fillCategoriesLists() {
-        self.category1.addItems(withTitles: UkrainianBooksCategories)
-        self.category2.addItems(withTitles: [""] + UkrainianBooksCategories)
-        self.category3.addItems(withTitles: [""] + UkrainianBooksCategories)
+        category1?.addItems(withTitles: UkrainianBooksCategories)
+        category2?.addItems(withTitles: [""] + UkrainianBooksCategories)
+        category3?.addItems(withTitles: [""] + UkrainianBooksCategories)
     }
     
     @IBAction func saveAction(_ sender: NSButton) {
         
-        //Create array of categories
-        var categoriesArray: [String] = [(self.category1.selectedItem?.title)!]
-        if self.category2.selectedItem?.title != "" {
-            categoriesArray.append((self.category2.selectedItem?.title)!)
+        guard let category1Title = category1?.selectedItem?.title,
+            let language = language,
+            let itemTitle = itemTitle?.stringValue,
+            let chapter = chapter,
+            let description = itemDescription?.string,
+            !itemTitle.isEmpty,
+            !description.isEmpty else {
+                Swift.print("Fill all fields.")
+                return
         }
-        if self.category3.selectedItem?.title != "" {
-            categoriesArray.append((self.category3.selectedItem?.title)!)
+        
+        //Create array of categories
+        var categoriesArray: [String] = [category1Title]
+        if let category2Title = category2?.selectedItem?.title, !category2Title.isEmpty {
+            categoriesArray.append(category2Title)
+        }
+        if let category3Title = category3?.selectedItem?.title, !category3Title.isEmpty {
+            categoriesArray.append(category3Title)
         }
         
         //Create item dictioanry
-        let info = ["title": self.itemTitle.stringValue,
-            "categories":categoriesArray] as [String : Any]
+        let mainInfo = ["title": itemTitle, "categories": categoriesArray] as [String : Any]
+        var additionalInfo = ["description": description]
+        if let imageName = imageFileName?.stringValue, !imageName.isEmpty {
+            additionalInfo["imageFileName"] = imageName
+        }
+        if let itemUrl = urlTextField?.stringValue, !itemUrl.isEmpty {
+            guard let _ = URL(string: itemUrl) else {
+                Swift.print("URL contains characters that are illegal in a URL.")
+                return
+            }
+            additionalInfo["url"] = itemUrl
+        }
+        let itemData = ["MainInfo": mainInfo,"AdditionalInfo": additionalInfo]
         
-        var coverAndDescription = ["description":(self.itemDescription.textStorage?.string)!]
-        
-        if self.imageURL.stringValue.isEmpty {
-            coverAndDescription["image"] = "NO IMAGE DATA"
-            let itemData = ["info": info,"coverAndDescription":coverAndDescription]
-            FirebaseManager.sharedManager.saveItem(itemData as [String : AnyObject], withLanguage: (self.language.selectedItem?.title)!, chapter: chapter)
-        } else {
-            let imageUrl = URL(string: self.imageURL.stringValue)
-            let imageData = try? Data(contentsOf: imageUrl!)
-            if let base64String = imageData?.base64EncodedString(options: .lineLength64Characters) {
-                coverAndDescription["image"] = base64String
-                let itemData = ["bookInfo": info,"coverAndDescription": coverAndDescription]
-                FirebaseManager.sharedManager.saveItem(itemData as [String : AnyObject], withLanguage: (self.language.selectedItem?.title)!, chapter: chapter)
+        FirebaseManager.sharedManager.saveItem(itemData as [String : AnyObject], withLanguage: language, chapter: chapter) { (error) in
+            if let error = error {
+                Swift.print(error)
             } else {
-                print("ERROR LOADING IMAGE")
+                self.cleanAllFields()
             }
         }
+    }
+    
+    func cleanAllFields() {
+        itemTitle?.stringValue = ""
+        itemDescription?.string = ""
+        imageFileName?.stringValue = ""
+        category2?.selectItem(at: 0)
+        category3?.selectItem(at: 0)
+        urlTextField?.stringValue = ""
     }
 }
