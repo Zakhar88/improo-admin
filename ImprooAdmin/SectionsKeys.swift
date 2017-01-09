@@ -17,7 +17,6 @@ enum Languages: String {
 }
 
 enum Chapters: String {
-    case News = "News"
     case Books = "Books"
     case Events = "Events"
     case Activities = "Activities"
@@ -26,8 +25,9 @@ enum Chapters: String {
     case Entertainment = "Entertainment"
     case Sport = "Sport"
     case Career = "Career"
-    
-    static let allChapters = [News.rawValue, Books.rawValue, Events.rawValue, Activities.rawValue, Resources.rawValue, Food.rawValue, Entertainment.rawValue, Sport.rawValue, Career.rawValue]
+    case News = "News"
+
+    static let allChapters = [Books.rawValue, Events.rawValue, Activities.rawValue, Resources.rawValue, Food.rawValue, Entertainment.rawValue, Sport.rawValue, Career.rawValue, News.rawValue]
 }
 
 

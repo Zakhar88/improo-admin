@@ -25,8 +25,8 @@ class MainViewController: NSViewController {
     @IBAction func newItemAction(_ sender: NSButton) {
         switch self.sectionPopUpButton.selectedItem!.title {
         case Chapters.Books.rawValue :
-            let booksStoryboard = NSStoryboard(name: "Books", bundle: nil)
-            let newBookViewController = booksStoryboard.instantiateController(withIdentifier: "NewBookViewController") as! NSViewController
+            let booksStoryboard = NSStoryboard(name: "NewItem", bundle: nil)
+            let newBookViewController = booksStoryboard.instantiateController(withIdentifier: "NewItemViewController") as! NewItemViewController
             self.presentViewControllerAsModalWindow(newBookViewController)
         default : break
         }
